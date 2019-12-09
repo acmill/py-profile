@@ -12,27 +12,26 @@ from time import perf_counter
 ####
 #   Spit out time values for two functions A, B tested on set of inputs size N
 ####
-def GetResults(A, B, N):        
+def GetResults(A, B, N, lowerBound, upperBound):        
 
-    #   Generate stats in ms for function A
+    ##   Generate stats in ms for function A
     meanA = statistics.mean(A)
     medianA = statistics.median(A)
     modeA = statistics.mode(A)
 
-    #   Generate stats in ms for function B
+    ##   Generate stats in ms for function B
     meanB = statistics.mean(B)
     medianB = statistics.median(B)
     modeB = statistics.mode(B)
 
-    #   Comparison Metric
-
-
-    #   Header
+    
+    ##  Header
     print()
-    print(" For ",format(N, ',d')," function calls on random numbers ranging \
-            from 0 to 1,000,000,000:")
+    print(" For",format(N, ',d'),"calls on random numbers ranging from",
+            format(lowerBound, ',d'),"to",format(upperBound, ',d'),":")
     print()
 
+    ##  Stats
     #   Stats for function A
     print(" Function A():")
     print(" -> Mean Time Value for A(): {:>30}".format(meanA),"ms" )
@@ -47,10 +46,7 @@ def GetResults(A, B, N):
     print(" -> Mode Time Value for B(): {:>30}".format(modeB),"ms" )
     print()
 
-    #   Compare A and B
-
-
-
+    ##  Comparisons
     #   Compare mean values
     if meanA < meanB:
         print("The mean time value for function A is lower: ", meanA,"ms")
@@ -116,10 +112,11 @@ def main():
     initialClockProgram = perf_counter()
 
     #   This is a lot (change at will)
-    N = 5000000
-
+    N = 500000
+    lowerBound = 0
+    upperBound = 1000000000
     #   Make a length N list of random numbers anywhere between 0 to 1 billion
-    randomNumbers = [random.randint(0, 1000000000) for _ in range(N)]
+    randomNumbers = [random.randint(lowerBound, upperBound) for _ in range(N)]
     
     valuesA = []
     valuesB = []
@@ -152,7 +149,7 @@ def main():
         #   Append time value to list (in milliseconds)
         valuesB.append( (finalClockB - initialClockB) * 1000 )
 
-    GetResults(valuesA,valuesB,N)
+    GetResults(valuesA,valuesB,N,lowerBound,upperBound)
 
     #   Stop clock (for total runtime)
     finalClockProgram = perf_counter()
