@@ -25,12 +25,14 @@ def GetResults(A, B, N, lowerBound, upperBound):
     medianB = statistics.median(B)
     modeB = statistics.mode(B)
 
+    #   Version
+    version = ".".join( map(str, sys.version_info[:3]) )
     
     ##  Header
     print()
     print(" For",format(N, ',d'),"calls on random numbers ranging from",
             format(lowerBound, ',d'),"to",format(upperBound, ',d'),
-            " in Python version:", ".".join(map(str, sys.version_info[:3])),":"))
+            " in Python version:", version,":")
     print()
 
     ##  Stats
