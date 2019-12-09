@@ -30,7 +30,7 @@ def GetResults(A, B, N, lowerBound, upperBound):
     print()
     print(" For",format(N, ',d'),"calls on random numbers ranging from",
             format(lowerBound, ',d'),"to",format(upperBound, ',d'),
-            " in Python version:", (".".join(map(str, sys.version_info[:3]) ) ,":"))
+            " in Python version:", ".".join(map(str, sys.version_info[:3])),":"))
     print()
 
     ##  Stats
