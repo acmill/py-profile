@@ -2,6 +2,7 @@
 ##  CSE431
 ### Compare the performance of two functions A and B in Python3.7.5 (64 bit)
 
+import platform
 import random
 import statistics
 from time import perf_counter
@@ -28,7 +29,8 @@ def GetResults(A, B, N, lowerBound, upperBound):
     ##  Header
     print()
     print(" For",format(N, ',d'),"calls on random numbers ranging from",
-            format(lowerBound, ',d'),"to",format(upperBound, ',d'),":")
+            format(lowerBound, ',d'),"to",format(upperBound, ',d'),
+            " in Python version:", print(platform.python_version(),":"))
     print()
 
     ##  Stats
