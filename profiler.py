@@ -31,8 +31,8 @@ def GetResults(A, B, N, lowerBound, upperBound):
     ##  Header
     print()
     print(" For",format(N, ',d'),"calls on random numbers ranging from",
-            format(lowerBound, ',d'),"to",format(upperBound, ',d'),
-            " in Python version:", version,":")
+            format(lowerBound, ',d'),"to",format(upperBound, ',d'),":")
+    print(" in Python:",version,":")
     print()
 
     ##  Stats
