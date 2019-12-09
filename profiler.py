@@ -112,7 +112,7 @@ def main():
     initialClockProgram = perf_counter()
 
     #   This is a lot (change at will)
-    N = 500000
+    N = 5000000
     lowerBound = 0
     upperBound = 1000000000
     #   Make a length N list of random numbers anywhere between 0 to 1 billion
